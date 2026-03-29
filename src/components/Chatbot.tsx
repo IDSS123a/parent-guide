@@ -1,6 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo } from 'react';
-import { GoogleGenAI, Chat } from '@google/genai';
-import { MessageCircle, X, Send, Loader2, Bot, User } from 'lucide-react';
+import { MessageCircle, X, Send, Loader2, User } from 'lucide-react';
 import DOMPurify from 'dompurify';
 import { guideContent } from '../data/guideContent';
 import { extractTextFromNode } from '../utils/textUtils';
@@ -23,7 +22,6 @@ export const Chatbot: React.FC = () => {
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   
-  const chatRef = useRef<Chat | null>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Generate system instruction from guide content
@@ -52,29 +50,6 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
     return text;
   }, []);
 
-  // Initialize chat session
-  useEffect(() => {
-    try {
-      // @ts-ignore - Vite define replaces this
-      const apiKey = process.env.GEMINI_API_KEY;
-      if (!apiKey) {
-        console.error('Gemini API key is missing');
-        return;
-      }
-      
-      const ai = new GoogleGenAI({ apiKey });
-      chatRef.current = ai.chats.create({
-        model: 'gemini-3.1-pro-preview',
-        config: {
-          systemInstruction,
-          temperature: 0.3,
-        }
-      });
-    } catch (error) {
-      console.error('Failed to initialize Gemini chat:', error);
-    }
-  }, [systemInstruction]);
-
   // Scroll to bottom when messages change
   useEffect(() => {
     if (messagesEndRef.current) {
@@ -85,7 +60,7 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
   const handleSendMessage = async (e?: React.FormEvent) => {
     e?.preventDefault();
     
-    if (!input.trim() || isLoading || !chatRef.current) return;
+    if (!input.trim() || isLoading) return;
     
     const userMessage = input.trim();
     setInput('');
@@ -100,12 +75,21 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
     setIsLoading(true);
     
     try {
-      const response = await chatRef.current.sendMessage({ message: userMessage });
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ 
+          message: userMessage,
+          systemInstruction: systemInstruction
+        })
+      });
+      
+      const data = await res.json();
       
       const newModelMsg: Message = {
         id: (Date.now() + 1).toString(),
         role: 'model',
-        text: response.text || 'I am sorry, I could not generate a response.'
+        text: data.html || '<p>I am sorry, I could not generate a response.</p>'
       };
       
       setMessages(prev => [...prev, newModelMsg]);
@@ -114,7 +98,7 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
       const errorMsg: Message = {
         id: (Date.now() + 1).toString(),
         role: 'model',
-        text: 'Sorry, I encountered an error while processing your request. Please try again later.'
+        text: '<p>Došlo je do greške. Kontakt: <a href="mailto:info@idss.ba">info@idss.ba</a> ili +387 33 560 520</p>'
       };
       setMessages(prev => [...prev, errorMsg]);
     } finally {
