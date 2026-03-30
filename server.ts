@@ -4,7 +4,7 @@ import path from "path";
 import dotenv from "dotenv";
 import chatHandler from "./api/chat";
 
-dotenv.config();
+dotenv.config({ path: '.env.local' });
 
 async function startServer() {
   const app = express();
