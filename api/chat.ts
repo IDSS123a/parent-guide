@@ -10,7 +10,7 @@ export default async function handler(req: any, res: any) {
     return res.status(400).json({ html: "<p>Poruka nije poslana.</p>" });
   }
 
-  const GEMINI_KEY = process.env.GEMINI_API_KEY;
+  const GEMINI_KEY = process.env.IDSS_GEMINI_KEY;
   if (!GEMINI_KEY) {
     return res.status(500).json({
       html: `<p>Došlo je do greške. Kontakt: <a href='mailto:info@idss.ba'>info@idss.ba</a> ili +387 33 560 520</p>`
