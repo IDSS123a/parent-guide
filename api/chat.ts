@@ -1,44 +1,51 @@
-import { GoogleGenAI } from "@google/genai";
+import type { NextApiRequest, NextApiResponse } from 'next';
 
-export default async function handler(req: any, res: any) {
-  if (req.method !== "POST") {
-    return res.status(405).json({ error: "Method Not Allowed" });
-  }
+type Data = {
+  reply?: string;
+  error?: string;
+};
 
-  const { message, systemInstruction } = req.body;
-  if (!message) {
-    return res.status(400).json({ html: "<p>Poruka nije poslana.</p>" });
-  }
-
-  const GEMINI_KEY = process.env.IDSS_GEMINI_KEY;
-  if (!GEMINI_KEY) {
-    return res.status(500).json({
-      html: `<p>Došlo je do greške. Kontakt: <a href='mailto:info@idss.ba'>info@idss.ba</a> ili +387 33 560 520</p>`
-    });
-  }
-
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<Data>
+) {
   try {
-    const ai = new GoogleGenAI({ apiKey: GEMINI_KEY });
-    const response = await ai.models.generateContent({
-      model: "gemini-3.1-pro-preview",
-      contents: message,
-      config: {
-        systemInstruction: systemInstruction,
-        temperature: 0.3,
-        maxOutputTokens: 500,
-      }
-    });
+    if (req.method !== 'POST') {
+      return res.status(405).json({ error: 'Method Not Allowed' });
+    }
 
-    const text = response.text || "I am sorry, I could not generate a response.";
-    // Convert newlines to <br> and wrap in <p> as requested
-    const html = `<p>${text.replace(/\n/g, "<br>")}</p>`;
-    
-    res.status(200).json({ html });
+    const { message } = req.body;
+    if (!message) return res.status(400).json({ error: 'Message is required' });
+
+    const API_KEY = process.env.GENERATIVE_API_KEY;
+    if (!API_KEY) return res.status(500).json({ error: 'API key missing' });
+
+    const response = await fetch(
+      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          prompt: { text: message },
+          temperature: 0.7,
+          candidate_count: 1
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      console.error('Generative API error:', data);
+      return res.status(500).json({ error: data.error?.message || 'API error' });
+    }
+
+    // Čist odgovor za frontend
+    const replyText = data.candidates?.[0]?.content?.[0]?.text || '';
+    return res.status(200).json({ reply: replyText });
+
   } catch (err) {
-    console.error("Gemini API error:", err);
-    // Exact fallback message as requested
-    res.status(500).json({
-      html: `<p>Došlo je do greške. Kontakt: <a href='mailto:info@idss.ba'>info@idss.ba</a> ili +387 33 560 520</p>`
-    });
+    console.error('Internal server error:', err);
+    return res.status(500).json({ error: 'Internal server error' });
   }
 }
