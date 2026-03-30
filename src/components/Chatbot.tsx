@@ -114,7 +114,7 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
         className={`fixed bottom-6 right-6 p-4 bg-idss-blue text-white rounded-full shadow-lg hover:bg-idss-blue-hover transition-all transform hover:scale-105 z-40 print:hidden ${isOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}
         aria-label="Open chat"
       >
-        <MessageCircle size={28} />
+        <img src="https://i.postimg.cc/053vV796/idss-logo.png" alt="IDSS" className="w-7 h-7 object-contain" referrerPolicy="no-referrer" />
       </button>
 
       {/* Chat Window */}
