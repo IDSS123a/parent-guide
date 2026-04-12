@@ -4,7 +4,7 @@ REM Automatski force push za Parent Guide
 REM ================================================
 
 REM Postavi folder gdje se nalazi lokalni repozitorij
-cd /d "C:\PRIVATE\AI\IDSS_Parent_Guide"
+cd /d "C:\PRIVATE\AI\1. DEFINITIVNO\IDSS_Parent_Guide"
 
 REM Dodaj sve promjene
 git add .

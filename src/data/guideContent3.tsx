@@ -511,7 +511,7 @@ export const guideContent3: GuideSection[] = [
             <thead>
               <tr>
                 <th className="bg-blue-800 text-white border border-gray-200 px-4 py-2 text-left">✓ Acceptable</th>
-                <th className="bg-red-700 text-white border border-gray-200 px-4 py-2 text-left">✗ Not permitted (Policy, Čl. 10)</th>
+                <th className="bg-red-700 text-white border border-gray-200 px-4 py-2 text-left">✗ Not permitted (Policy, Art. 10)</th>
               </tr>
             </thead>
             <tbody>
@@ -601,7 +601,7 @@ export const guideContent3: GuideSection[] = [
             <thead>
               <tr className="bg-blue-800 text-white">
                 <th className="border border-gray-200 px-4 py-2 text-left">Step</th>
-                <th className="border border-gray-200 px-4 py-2 text-left">Mobile phone procedure (Policy, Čl. 5t)</th>
+                <th className="border border-gray-200 px-4 py-2 text-left">Mobile phone procedure (Policy, Art. 5t)</th>
               </tr>
             </thead>
             <tbody>
