@@ -125,7 +125,7 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
         <div className="bg-idss-blue text-white p-4 flex items-center justify-between flex-shrink-0">
           <div className="flex items-center space-x-3">
             <div className="bg-white rounded-full p-1 flex items-center justify-center w-10 h-10">
-              <img src="https://i.postimg.cc/KcJxyzT5/IDSS-Logo-RGB-Primarna-verzija.png" alt="IDSS Logo" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+              <img src="/IDSS-Logo-RGB-Primarna-verzija.png" alt="IDSS Logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <h3 className="font-bold">IDSS Assistant</h3>
