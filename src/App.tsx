@@ -80,7 +80,7 @@ export default function App() {
         <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-idss-blue print:hidden">
           <div className="relative w-full h-full flex flex-col items-center justify-center p-4">
             <img 
-              src="https://i.postimg.cc/bN0zFTTs/Cover.jpg" 
+              src="/Cover.jpg"
               alt="IDSS Parent Guide Cover" 
               className="max-h-[80vh] w-auto object-contain shadow-2xl rounded-lg"
             />

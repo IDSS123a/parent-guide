@@ -39,7 +39,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-idss-blue text-white">
           <div className="flex items-center space-x-3">
             <div className="bg-white rounded p-1 flex items-center justify-center">
-              <img src="https://i.postimg.cc/KcJxyzT5/IDSS-Logo-RGB-Primarna-verzija.png" alt="IDSS Logo" className="h-8 object-contain" referrerPolicy="no-referrer" />
+              <img src="/IDSS-Logo-RGB-Primarna-verzija.png" alt="IDSS Logo" className="h-8 object-contain" />
             </div>
             <h1 className="font-bold text-white text-lg m-0">Parent Guide</h1>
           </div>
