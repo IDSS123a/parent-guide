@@ -114,7 +114,7 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
         className={`fixed bottom-6 right-6 p-4 bg-white rounded-full shadow-lg hover:shadow-xl transition-all transform hover:scale-105 z-40 print:hidden border-2 border-idss-blue ${isOpen ? 'scale-0 opacity-0' : 'scale-100 opacity-100'}`}
         aria-label="Open chat"
       >
-        <img src="https://i.postimg.cc/053vV796/idss-logo.png" alt="IDSS" className="w-7 h-7 object-contain" referrerPolicy="no-referrer" />
+        <img src="/idss-logo.png" alt="IDSS" className="w-7 h-7 object-contain" referrerPolicy="no-referrer" />
       </button>
 
       {/* Chat Window */}
@@ -153,7 +153,7 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
                   {msg.role === 'user' ? (
                     <User size={16} />
                   ) : (
-                    <img src="https://i.postimg.cc/053vV796/idss-logo.png" alt="IDSS Bot" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+                    <img src="/idss-logo.png" alt="IDSS Bot" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
                   )}
                 </div>
                 <div 
@@ -179,7 +179,7 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
             <div className="flex justify-start">
               <div className="flex max-w-[85%] flex-row">
                 <div className="flex-shrink-0 h-8 w-8 rounded-full bg-gray-100 border border-gray-200 mr-2 p-1 flex items-center justify-center overflow-hidden">
-                  <img src="https://i.postimg.cc/053vV796/idss-logo.png" alt="IDSS Bot" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
+                  <img src="/idss-logo.png" alt="IDSS Bot" className="w-full h-full object-contain" referrerPolicy="no-referrer" />
                 </div>
                 <div className="p-4 rounded-2xl bg-white border border-gray-200 rounded-tl-none shadow-sm flex items-center space-x-2">
                   <Loader2 size={16} className="animate-spin text-idss-blue" />
