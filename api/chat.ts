@@ -12,11 +12,16 @@ export default async function handler(req: Request, res: Response) {
     const API_KEY = process.env.GENERATIVE_API_KEY;
     if (!API_KEY) return res.status(500).json({ error: 'API key missing' });
 
+
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 30000);
+
     const response = await fetch(
       `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${API_KEY}`,
       {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        signal: controller.signal,
         body: JSON.stringify({
           system_instruction: systemInstruction
             ? { parts: [{ text: systemInstruction }] }
@@ -37,6 +42,7 @@ export default async function handler(req: Request, res: Response) {
 
 
     const data = await response.json();
+    clearTimeout(timeout);
     console.log('Gemini response status:', response.status);
     console.log('Gemini response body:', JSON.stringify(data, null, 2));
 
