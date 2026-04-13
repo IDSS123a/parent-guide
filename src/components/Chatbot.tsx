@@ -25,30 +25,6 @@ export const Chatbot: React.FC = () => {
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   // Generate system instruction from guide content
-  const systemInstruction = useMemo(() => {
-    let text = `You are a helpful, knowledgeable, and polite assistant for the Internationale Deutsche Schule Sarajevo (IDSS). You have deep and full understanding of all details related to the elementary school.
-
-Your knowledge base includes publicly available information about the IDSS school, such as their mission, vision, values, and general contact information, as found on their official website (https://idss.edu.ba/), as well as the complete Parent Guide for 2026/2027.
-
-CRITICAL INSTRUCTIONS FOR YOUR OUTPUT:
-1. You MUST render your response EXCLUSIVELY in HTML format.
-2. Markdown (#, *, _, >...) is STRICTLY FORBIDDEN. Do not use any markdown formatting.
-3. Your answers must be precise, clear, and professional.
-4. If you do not know the answer, you MUST direct the user to contact the school using exactly this HTML snippet: <a href='mailto:info@idss.ba'>info@idss.ba</a> ili +387 33 560 520.
-5. If your answer includes a list, use <ul> and <li> tags. For emphasis, use <strong> or <em>.
-6. Ensure your HTML is safe, valid, and does not break the layout. Do not include <html>, <head>, or <body> tags, just the content elements.
-
-Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision, Values, and Contact info):
-
-`;
-    
-    guideContent.forEach(section => {
-      text += `--- ${section.title} ---\n`;
-      text += extractTextFromNode(section.content) + '\n\n';
-    });
-    
-    return text;
-  }, []);
 
   // Scroll to bottom when messages change
   useEffect(() => {
@@ -79,8 +55,7 @@ Here is the complete Parent Guide for 2026/2027 (which includes Mission, Vision,
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
-          message: userMessage,
-          systemInstruction: systemInstruction
+          message: userMessage
         })
       });
       
