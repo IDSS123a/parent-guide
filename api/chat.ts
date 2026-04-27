@@ -1,4 +1,4 @@
-import { Request, Response } from 'express';
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 
 const SYSTEM_INSTRUCTION = `You are the official AI assistant for the Internationale Deutsche Schule Sarajevo (IDSS), helping parents with questions about the IDSS Parent Guide 2026/2027. Answer only based on the information below. Be concise, warm, and professional. Use HTML format only — no markdown. If you do not know the answer, direct the parent to info@idss.ba or +387 33 560 520. Always respond in the same language the parent uses.
 
@@ -32,7 +32,7 @@ COMMUNICATION: Class teacher: daily matters. info@idss.ba + class teacher: absen
 
 AFTERSCHOOL: 15:15–17:00. Activities: languages, STEM, music, drama, sports, arts. Project Week: 22–25 May 2027. Summer School: 2–13 Aug 2027, ages 6–15.`;
 
-export default async function handler(req: Request, res: Response) {
+export default async function handler(req: VercelRequest, res: VercelResponse) {
   try {
     if (req.method !== 'POST') {
       return res.status(405).json({ error: 'Method Not Allowed' });
