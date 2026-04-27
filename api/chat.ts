@@ -41,32 +41,75 @@ export default async function handler(req: Request, res: Response) {
     const { message } = req.body;
     if (!message) return res.status(400).json({ error: 'Message is required' });
 
-    const API_KEY = process.env.GENERATIVE_API_KEY;
-    if (!API_KEY) return res.status(500).json({ error: 'API key missing' });
 
-    const controller = new AbortController();
-    const timeout = setTimeout(() => controller.abort(), 30000);
+    // FIX 1 — 8-key rotation
+    const API_KEYS = [
+      process.env.GENERATIVE_API_KEY,
+      process.env.IDSS_GEMINI_KEY_2,
+      process.env.IDSS_GEMINI_KEY_3,
+      process.env.IDSS_GEMINI_KEY_4,
+      process.env.IDSS_GEMINI_KEY_5,
+      process.env.IDSS_GEMINI_KEY_6,
+      process.env.IDSS_GEMINI_KEY_7,
+      process.env.IDSS_GEMINI_KEY_8,
+    ].filter(Boolean) as string[];
 
-    const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`,
-      {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        signal: controller.signal,
-        body: JSON.stringify({
-          system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
-          contents: [{ role: 'user', parts: [{ text: message }] }],
-          generationConfig: { temperature: 0.7, candidateCount: 1 }
-        }),
+    if (API_KEYS.length === 0) {
+      return res.status(500).json({ error: 'No API keys configured' });
+    }
+
+    // Rotate key every minute — spreads load evenly across all 8 keys
+    const startKeyIndex = Math.floor(Date.now() / 60000) % API_KEYS.length;
+
+
+    // FIX 2 — Retry logic across all keys
+    let response: globalThis.Response | null = null;
+    let data: any = null;
+
+    for (let attempt = 0; attempt < API_KEYS.length; attempt++) {
+      const currentKey = API_KEYS[(startKeyIndex + attempt) % API_KEYS.length];
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 25000);
+
+      try {
+        response = await fetch(
+          `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${currentKey}`,
+          {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            signal: controller.signal,
+            body: JSON.stringify({
+              system_instruction: { parts: [{ text: SYSTEM_INSTRUCTION }] },
+              contents: [{ role: 'user', parts: [{ text: message }] }],
+              generationConfig: { temperature: 0.7, candidateCount: 1 }
+            }),
+          }
+        );
+        clearTimeout(timeout);
+        data = await response.json();
+
+        if (!response.ok && (data?.error?.status === 'RESOURCE_EXHAUSTED' || response.status === 429)) {
+          console.warn(`[Chatbot] Key ${(startKeyIndex + attempt) % API_KEYS.length + 1} quota exceeded, trying next key...`);
+          continue;
+        }
+
+        break; // Success or non-quota error — stop retrying
+
+      } catch (err) {
+        clearTimeout(timeout);
+        console.error(`[Chatbot] Key ${(startKeyIndex + attempt) % API_KEYS.length + 1} failed:`, err);
+        if (attempt === API_KEYS.length - 1) throw err;
       }
-    );
+    }
 
-    clearTimeout(timeout);
-    const data = await response.json();
+    if (!response || !data) {
+      return res.status(503).json({ error: 'All 8 API keys exhausted or unreachable' });
+    }
 
+    // FIX 3 — Improved error block
     if (!response.ok) {
-      console.error('Gemini API error:', data?.error?.message);
-      return res.status(500).json({ error: data.error?.message || 'API error' });
+      console.error('[Chatbot] Gemini API error:', data?.error?.message);
+      return res.status(503).json({ error: data?.error?.message || 'All API keys failed or quota exceeded' });
     }
 
     const html = data.candidates?.[0]?.content?.parts?.[0]?.text ||
