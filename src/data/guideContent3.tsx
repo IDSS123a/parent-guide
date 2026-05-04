@@ -205,7 +205,7 @@ export const guideContent3: GuideSection[] = [
         <div className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-500 space-y-4">
           <p>For last-minute emergency changes:</p>
           <p>Call immediately: +387 60 345 1275 or +387 33 560 520</p>
-          <p>Or email: pedagogy@idss.ba</p>
+          <p>Or email: pedagog@idss.ba</p>
           <p>Do NOT rely on email alone for urgent same-day changes, always call.</p>
         </div>
       </div>

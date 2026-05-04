@@ -715,7 +715,7 @@ export const guideContent4: GuideSection[] = [
         <p className="mb-2">We welcome constructive feedback. If you have a concern, please follow this order:</p>
         <ol className="list-decimal pl-6 space-y-2 mb-4">
           <li>Speak directly with the class teacher or relevant staff member.</li>
-          <li>If unresolved, contact the Head of Education: pedagogy@idss.ba</li>
+          <li>If unresolved, contact the Head of Education: pedagog@idss.ba</li>
           <li>If still unresolved, request a meeting with the Principal via email.</li>
           <li>As a final step, submit a written complaint to the School Board.</li>
         </ol>

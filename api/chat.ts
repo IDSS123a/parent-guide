@@ -28,7 +28,7 @@ ACADEMIC: German federal curriculum (Baden-Württemberg & Thüringen). Languages
 
 PRESCHOOL: Follows IMH calendar. CLOSED: Fri 25 Sep 2026 and Fri 16 Apr 2027 (staff training). OPEN during Autumn Holidays (19–23 Oct). Full board included.
 
-COMMUNICATION: Class teacher: daily matters. info@idss.ba + class teacher: absences. pedagogy@idss.ba: curriculum. Principal: serious complaints. Response within 24h weekdays. Parent-teacher meetings: November and April.
+COMMUNICATION: Class teacher: daily matters. info@idss.ba + class teacher: absences. pedagog@idss.ba: curriculum. Principal: serious complaints. Response within 24h weekdays. Parent-teacher meetings: November and April.
 
 AFTERSCHOOL: 15:15–17:00. Activities: languages, STEM, music, drama, sports, arts. Project Week: 22–25 May 2027. Summer School: 2–13 Aug 2027, ages 6–15.`;
 

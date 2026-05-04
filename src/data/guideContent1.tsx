@@ -95,7 +95,7 @@ export const guideContent1: GuideSection[] = [
             <p className="text-sm">Buka 13, 71 000 Sarajevo, BiH</p>
             <p className="text-sm">idss.edu.ba</p>
             <p className="text-sm">General: info@idss.ba</p>
-            <p className="text-sm">Head of pedagogy: pedagogy@idss.ba</p>
+            <p className="text-sm">Head of pedagogy: pedagog@idss.ba</p>
           </div>
           <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
             <h4 className="font-bold text-blue-800 mb-2">Phone (General)</h4>
@@ -147,7 +147,7 @@ export const guideContent1: GuideSection[] = [
               </tr>
               <tr className="bg-gray-50">
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Pedagogical concerns / curriculum</td>
-                <td className="border border-gray-200 px-4 py-2">Head of Education, pedagogy@idss.ba</td>
+                <td className="border border-gray-200 px-4 py-2">Head of Education, pedagog@idss.ba</td>
               </tr>
               <tr>
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Administrative matters, fees, documents</td>
