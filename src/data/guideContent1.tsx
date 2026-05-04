@@ -15,9 +15,7 @@ export const guideContent1: GuideSection[] = [
         <p>We look forward to a year of learning, growth, and shared achievement.</p>
         <p>Sincerely,</p>
         <div className="mt-8">
-          <p className="mb-2" style={{ fontFamily: "'Brittany Signature', cursive", fontSize: '16px' }}>Davor Mulalic</p>
-          <p className="font-bold">Davor Mulalic</p>
-          <p className="text-gray-600 italic">Principal | IDSS Sarajevo | 2026</p>
+           <img src="/Paraf.png" alt="Signature" style={{ height: '60px' }} />
         </div>
       </div>
     )
@@ -39,7 +37,7 @@ export const guideContent1: GuideSection[] = [
           </div>
           <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-100 text-center">
             <h4 className="font-bold text-blue-800 mb-2">Bilingual Communicators</h4>
-            <p className="text-sm">fluent in German, proficient in English</p>
+              <p className="text-sm">fluent in German, proficient in English, and native in B/H/S</p>
           </div>
           <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-100 text-center">
             <h4 className="font-bold text-blue-800 mb-2">Global Citizens</h4>
@@ -97,7 +95,7 @@ export const guideContent1: GuideSection[] = [
             <p className="text-sm">Buka 13, 71 000 Sarajevo, BiH</p>
             <p className="text-sm">idss.edu.ba</p>
             <p className="text-sm">General: info@idss.ba</p>
-            <p className="text-sm">Pedagogy: pedagogy@idss.ba</p>
+            <p className="text-sm">Head of pedagogy: pedagogy@idss.ba</p>
           </div>
           <div className="bg-yellow-50 p-4 rounded-lg border border-yellow-100">
             <h4 className="font-bold text-blue-800 mb-2">Phone (General)</h4>
