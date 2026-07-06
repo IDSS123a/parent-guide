@@ -13,7 +13,7 @@ export const guideContent2: GuideSection[] = [
           <p><strong>School year:</strong> 1 September 2026 – 21 June 2027</p>
           <p><strong>Semester 1:</strong> 1 Sep 2026 – 31 Jan 2027</p>
           <p><strong>Semester 2:</strong> 1 Feb 2027 – 21 Jun 2027</p>
-          <p><strong>Preparation Week (staff only):</strong> 17 – 31 August 2026 | No students.</p>
+          <p><strong>Preparation Week (staff only):</strong> 18 – 31 August 2026 | No students.</p>
         </div>
 
         <h3 className="text-xl font-bold text-blue-800 mt-6 mb-4">Full Year Calendar, Key Dates</h3>
@@ -32,7 +32,7 @@ export const guideContent2: GuideSection[] = [
             <tbody>
               <tr>
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Preparation Week</td>
-                <td className="border border-gray-200 px-4 py-2">17 – 31 Aug 2026</td>
+                <td className="border border-gray-200 px-4 py-2">18 – 31 Aug 2026</td>
                 <td className="border border-gray-200 px-4 py-2 font-semibold text-blue-600">Non-teaching</td>
                 <td className="border border-gray-200 px-4 py-2">Staff only. No students.</td>
               </tr>
