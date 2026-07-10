@@ -212,13 +212,13 @@ export const guideContent2: GuideSection[] = [
               </tr>
               <tr>
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Mother's Day</td>
-                <td className="border border-gray-200 px-4 py-2">Sat, 9 May 2027</td>
+                <td className="border border-gray-200 px-4 py-2">Sun, 9 May 2027</td>
                 <td className="border border-gray-200 px-4 py-2 font-semibold text-purple-600">Event</td>
                 <td className="border border-gray-200 px-4 py-2">Classroom activity</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Reading Day</td>
-                <td className="border border-gray-200 px-4 py-2">Thu, 14 May 2027</td>
+                <td className="border border-gray-200 px-4 py-2">Fri, 14 May 2027</td>
                 <td className="border border-gray-200 px-4 py-2 font-semibold text-purple-600">Event</td>
                 <td className="border border-gray-200 px-4 py-2">Promotes reading culture</td>
               </tr>
@@ -230,13 +230,13 @@ export const guideContent2: GuideSection[] = [
               </tr>
               <tr className="bg-gray-50">
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Sports Day</td>
-                <td className="border border-gray-200 px-4 py-2">Thu, 4 Jun 2027</td>
+                <td className="border border-gray-200 px-4 py-2">Fri, 4 Jun 2027</td>
                 <td className="border border-gray-200 px-4 py-2 font-semibold text-purple-600">Event</td>
                 <td className="border border-gray-200 px-4 py-2">Physical activity day</td>
               </tr>
               <tr>
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Summerfest</td>
-                <td className="border border-gray-200 px-4 py-2">Thu, 11 Jun 2027</td>
+                <td className="border border-gray-200 px-4 py-2">Fri, 11 Jun 2027</td>
                 <td className="border border-gray-200 px-4 py-2 font-semibold text-purple-600">Event</td>
                 <td className="border border-gray-200 px-4 py-2">End-of-year celebration</td>
               </tr>
@@ -434,22 +434,22 @@ export const guideContent2: GuideSection[] = [
               </tr>
               <tr className="bg-gray-50">
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Mother's Day</td>
-                <td className="border border-gray-200 px-4 py-2">Sat, 9 May 2027</td>
+                <td className="border border-gray-200 px-4 py-2">Sun, 9 May 2027</td>
                 <td className="border border-gray-200 px-4 py-2">Classroom gratitude activity</td>
               </tr>
               <tr>
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Reading Day</td>
-                <td className="border border-gray-200 px-4 py-2">Thu, 14 May 2027</td>
+                <td className="border border-gray-200 px-4 py-2">Fri, 14 May 2027</td>
                 <td className="border border-gray-200 px-4 py-2">Promotes reading culture</td>
               </tr>
               <tr className="bg-gray-50">
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Sports Day</td>
-                <td className="border border-gray-200 px-4 py-2">Thu, 4 Jun 2027</td>
+                <td className="border border-gray-200 px-4 py-2">Fri, 4 Jun 2027</td>
                 <td className="border border-gray-200 px-4 py-2">Physical activity; team spirit; fair play</td>
               </tr>
               <tr>
                 <td className="border border-gray-200 px-4 py-2 font-semibold">Summerfest</td>
-                <td className="border border-gray-200 px-4 py-2">Thu, 11 Jun 2027</td>
+                <td className="border border-gray-200 px-4 py-2">Fri, 11 Jun 2027</td>
                 <td className="border border-gray-200 px-4 py-2">End-of-year celebration; student awards</td>
               </tr>
             </tbody>
