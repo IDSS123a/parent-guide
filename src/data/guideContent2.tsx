@@ -10,7 +10,7 @@ export const guideContent2: GuideSection[] = [
         <p>The calendar below is based on the official Decision on the School Calendar for 2026/2027, adopted by the Director of IDSS in accordance with the Statute of P.U. Internationale Deutsche Schule Sarajevo, the Law on Primary Education of Sarajevo Canton, and the Law on Preschool Education of Sarajevo Canton. The full graphic calendar is available on the school website: idss.edu.ba</p>
         
         <div className="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500 space-y-2">
-          <p><strong>School year:</strong> 1 September 2026 – 21 June 2027</p>
+          <p><strong>School year:</strong> 1 September 2026 – 31 August 2027</p>
           <p><strong>Semester 1:</strong> 1 Sep 2026 – 31 Jan 2027</p>
           <p><strong>Semester 2:</strong> 1 Feb 2027 – 21 Jun 2027</p>
           <p><strong>Preparation Week (staff only):</strong> 18 – 31 August 2026 | No students.</p>
