@@ -122,7 +122,7 @@ export const Sidebar: React.FC<SidebarProps> = ({
         
         <div className="p-4 border-t border-gray-200 bg-gray-50 space-y-4">
           <a 
-            href="https://drive.google.com/file/d/1OMVK16ixqWNhEwzc-02gF4a6hPWb5BMd/view?usp=sharing"
+            href="https://drive.google.com/uc?export=download&id=1G2Mwp2ZCfUJUvy9XAXZtV87SndLnJave"
             target="_blank"
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center space-x-2 bg-idss-blue hover:bg-idss-blue-hover text-white py-2 px-4 rounded-lg transition-colors text-sm font-medium focus:outline-none focus:ring-2 focus:ring-idss-gold focus:ring-offset-1"
