@@ -119,6 +119,8 @@ export const SplashScreen: React.FC<SplashScreenProps> = ({ onOpen }) => {
           display:block;
           width:100%;
           height:auto;
+          -webkit-mask-image:linear-gradient(to bottom, black 96%, transparent 100%);
+          mask-image:linear-gradient(to bottom, black 96%, transparent 100%);
         }
         .splash-title{margin-top:24px;text-align:left}
         .splash-title span{display:block;line-height:1.18}
