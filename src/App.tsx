@@ -8,6 +8,7 @@ import { guideContent } from './data/guideContent';
 import { Sidebar } from './components/Sidebar';
 import { ContentArea } from './components/ContentArea';
 import { Chatbot } from './components/Chatbot';
+import { SplashScreen } from './components/SplashScreen';
 import { extractTextFromNode } from './utils/textUtils';
 
 export default function App() {
@@ -76,23 +77,7 @@ export default function App() {
 
   return (
     <>
-      {showSplash && (
-        <div className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-idss-blue print:hidden">
-          <div className="relative w-full h-full flex flex-col items-center justify-center p-4">
-            <img 
-              src="/Cover.jpg"
-              alt="IDSS Parent Guide Cover" 
-              className="max-h-[80vh] w-auto object-contain shadow-2xl rounded-lg"
-            />
-            <button 
-              onClick={() => setShowSplash(false)}
-              className="mt-8 px-8 py-3 bg-idss-gold hover:bg-idss-gold-hover text-idss-blue font-bold rounded-full shadow-lg transition-transform transform hover:scale-105 text-lg"
-            >
-              Open Guide
-            </button>
-          </div>
-        </div>
-      )}
+      {showSplash && <SplashScreen onOpen={() => setShowSplash(false)} />}
       
       <div className="flex h-screen overflow-hidden bg-gray-50 font-sans relative print:h-auto print:overflow-visible">
         <Sidebar
